@@ -42,9 +42,6 @@ spec:
                 operator: In
                 values:
                 - A
-                - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -122,10 +119,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
                 - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       securityContext:
@@ -209,10 +203,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
                 - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -294,9 +285,6 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
-                - C
                 - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
@@ -415,9 +403,6 @@ spec:
                 operator: In
                 values:
                 - A
-                - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -492,10 +477,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
                 - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -573,10 +555,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
                 - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -655,9 +634,6 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
-                - C
                 - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
@@ -737,9 +713,6 @@ spec:
                 operator: In
                 values:
                 - A
-                - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
@@ -815,10 +788,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
                 - B
-                - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       securityContext:
@@ -893,10 +863,7 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
                 - C
-                - D
             topologyKey: "kubernetes.io/hostname"
       securityContext:
         fsGroup: 1000
@@ -972,9 +939,6 @@ spec:
               - key: nodeGroup
                 operator: In
                 values:
-                - A
-                - B
-                - C
                 - D
             topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
