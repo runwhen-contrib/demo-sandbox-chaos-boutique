@@ -31,7 +31,21 @@ spec:
     metadata:
       labels:
         app: emailservice
+        nodeGroup: A
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -98,7 +112,21 @@ spec:
     metadata:
       labels:
         app: checkoutservice
+        nodeGroup: B
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       securityContext:
         fsGroup: 1000
@@ -171,7 +199,21 @@ spec:
     metadata:
       labels:
         app: recommendationservice
+        nodeGroup: C
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -232,7 +274,7 @@ kind: Deployment
 metadata:
   name: frontend
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: frontend
@@ -240,9 +282,23 @@ spec:
     metadata:
       labels:
         app: frontend
+        nodeGroup: D
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       securityContext:
         fsGroup: 1000
@@ -348,7 +404,21 @@ spec:
     metadata:
       labels:
         app: paymentservice
+        nodeGroup: A
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -412,7 +482,21 @@ spec:
     metadata:
       labels:
         app: productcatalogservice
+        nodeGroup: B
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -479,7 +563,21 @@ spec:
     metadata:
       labels:
         app: cartservice
+        nodeGroup: C
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -545,9 +643,23 @@ spec:
     metadata:
       labels:
         app: loadgenerator
+        nodeGroup: D
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       restartPolicy: Always
@@ -614,7 +726,21 @@ spec:
     metadata:
       labels:
         app: currencyservice
+        nodeGroup: A
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
@@ -679,7 +805,21 @@ spec:
     metadata:
       labels:
         app: shippingservice
+        nodeGroup: B
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       securityContext:
         fsGroup: 1000
@@ -743,7 +883,21 @@ spec:
     metadata:
       labels:
         app: redis-cart
+        nodeGroup: C
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       securityContext:
         fsGroup: 1000
         runAsGroup: 1000
@@ -808,7 +962,21 @@ spec:
     metadata:
       labels:
         app: adservice
+        nodeGroup: D
     spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: nodeGroup
+                operator: In
+                values:
+                - A
+                - B
+                - C
+                - D
+            topologyKey: "kubernetes.io/hostname"
       serviceAccountName: default
       terminationGracePeriodSeconds: 5
       securityContext:
