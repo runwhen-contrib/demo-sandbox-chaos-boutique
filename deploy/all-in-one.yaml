@@ -23,6 +23,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: emailservice
+  labels:
+    codecollection.runwhen.com/app: emailservice
 spec:
   selector:
     matchLabels:
@@ -32,6 +34,9 @@ spec:
       labels:
         app: emailservice
         nodeGroup: A
+        codecollection.runwhen.com/app: emailservice
+      annotations:
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -100,6 +105,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: checkoutservice
+  labels:
+      codecollection.runwhen.com/app: checkoutservice
 spec:
   replicas: 1
   selector:
@@ -110,6 +117,9 @@ spec:
       labels:
         app: checkoutservice
         nodeGroup: B
+        codecollection.runwhen.com/app: checkoutservice
+      annotations:
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -185,6 +195,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: recommendationservice
+  labels:
+    codecollection.runwhen.com/app: recommendationservice
 spec:
   selector:
     matchLabels:
@@ -194,6 +206,9 @@ spec:
       labels:
         app: recommendationservice
         nodeGroup: C
+        codecollection.runwhen.com/app: recommendationservice
+      annotations:
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -264,6 +279,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend
+  labels:
+    codecollection.runwhen.com/app: frontend
 spec:
   replicas: 1
   selector:
@@ -276,6 +293,8 @@ spec:
         nodeGroup: D
       annotations:
         sidecar.istio.io/rewriteAppHTTPProbers: "true"
+        codecollection.runwhen.com/app: frontend
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -384,6 +403,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: paymentservice
+  labels:
+    codecollection.runwhen.com/app: paymentservice
 spec:
   selector:
     matchLabels:
@@ -393,6 +414,9 @@ spec:
       labels:
         app: paymentservice
         nodeGroup: A
+      annotations:
+        codecollection.runwhen.com/app: paymentservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -459,6 +483,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: productcatalogservice
+  labels:
+    codecollection.runwhen.com/app: productcatalogservice
 spec:
   selector:
     matchLabels:
@@ -468,6 +494,9 @@ spec:
       labels:
         app: productcatalogservice
         nodeGroup: B
+      annotations:
+        codecollection.runwhen.com/app: productcatalogservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -537,6 +566,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: cartservice
+  labels:
+    codecollection.runwhen.com/app: cartservice
 spec:
   selector:
     matchLabels:
@@ -546,6 +577,9 @@ spec:
       labels:
         app: cartservice
         nodeGroup: C
+      annotations:
+        codecollection.runwhen.com/app: cartservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -694,6 +728,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: currencyservice
+  labels:
+    codecollection.runwhen.com/app: currencyservice
 spec:
   selector:
     matchLabels:
@@ -703,6 +739,9 @@ spec:
       labels:
         app: currencyservice
         nodeGroup: A
+      annotations:
+        codecollection.runwhen.com/app: currencyservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -770,6 +809,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shippingservice
+  labels:
+    codecollection.runwhen.com/app: shippingservice
 spec:
   selector:
     matchLabels:
@@ -779,6 +820,9 @@ spec:
       labels:
         app: shippingservice
         nodeGroup: B
+      annotations:
+        codecollection.runwhen.com/app: shippingservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
@@ -921,6 +965,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: adservice
+  labels:
+    codecollection.runwhen.com/app: adservice
 spec:
   selector:
     matchLabels:
@@ -930,6 +976,9 @@ spec:
       labels:
         app: adservice
         nodeGroup: D
+      annotations:
+        codecollection.runwhen.com/app: adservice
+        kubectl.kubernetes.io/default-container: server
     spec:
       affinity:
         podAntiAffinity:
